@@ -1,3 +1,15 @@
+# Notes
+
+SQL Server Name: SILVER-DESKTOP\SQLEXPRESS
+
+# Issues
+
+## The 'Microsoft.ACE.OLEDB.16.0' provider is not registered on the local machine. (System.Data)
+
+
+
+---
+
 # Data Analysis Project Template
 
 A standardized repository structure for data analysis and data science projects. This template is designed to promote reproducibility, collaboration, and best practices in data analysis workflows.
