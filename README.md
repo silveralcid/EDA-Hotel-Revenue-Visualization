@@ -6,7 +6,7 @@ SQL Server Name: SILVER-DESKTOP\SQLEXPRESS
 
 ## The 'Microsoft.ACE.OLEDB.16.0' provider is not registered on the local machine. (System.Data)
 
-
+Installing Microsoft Access Database Engine did not work after several attempts. Excel data files were converted to CSV as a workaround.
 
 ---
 
