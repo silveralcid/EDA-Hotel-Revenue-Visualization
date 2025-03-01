@@ -1,4 +1,4 @@
--- Create 'hotels' table for easier access and analysis.
+-- Create 'hotels' table for easier access and analysis
 
 WITH hotels AS(
 SELECT * FROM [Projects].[dbo].[2018]
@@ -11,7 +11,7 @@ SELECT * FROM hotels
 
 -- Q1: Is our hotel revenue growing yearly?
 
--- Dereive revenue values from adr (average daily rate), stays_in_week_nights, and stays_in_weekend_nights. 
+-- Derive revenue values from adr (average daily rate), stays_in_week_nights, and stays_in_weekend_nights. 
 
 -- Q2: Should we increase our parking lot size?
 
