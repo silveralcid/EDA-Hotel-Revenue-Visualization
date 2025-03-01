@@ -10,6 +10,7 @@ SELECT * FROM [Projects].[dbo].[2020])
 SELECT * FROM hotels
 
 -- Q1: Is our hotel revenue growing yearly?
+-- Q1-A: The revenue grew significantly between 2018 and 2019, however between 2019 and 2020, the revenue dropped by approximately 29%. In 2018, the total revenue was approx. $3.72 Million. In 2019, $15.27 Million. In 2020, $10.85 Million. 
 
 -- Alter adr from VARCHAR to DECIMAL
 
@@ -32,10 +33,12 @@ WITH hotels AS(
     UNION
     SELECT * FROM [Projects].[dbo].[2020]
 )
-SELECT 
-    (stays_in_week_nights + stays_in_weekend_nights) * adr as revenue 
-FROM 
-    hotels
+
+SELECT
+arrival_date_year,
+    SUM(((stays_in_week_nights + stays_in_weekend_nights) * adr / 10)) as revenue 
+FROM hotels
+GROUP BY arrival_date_year
 
 -- Q2: Should we increase our parking lot size?
 

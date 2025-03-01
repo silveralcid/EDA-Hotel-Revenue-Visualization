@@ -10,7 +10,7 @@ Installing Microsoft Access Database Engine did not work after several attempts.
 
 ## The SQL query failed because the varchar (text) column "adr" cannot be multiplied with a number
 
-The ALTER TABLE ALTER COLUMN statement changes the data type of "adr" from varchar to DECIMAL(10,2) in all three tables. This permanent change fixes the root issue by storing the values as actual numbers, allowing direct mathematical operations without conversion in every query. After this change, the original calculation query works correctly without any casting or formatting functions.
+The ALTER TABLE ALTER COLUMN statement changes the data type of "adr" from varchar to DECIMAL(10,2) in all three tables. This permanent change fixes the root issue by storing the values as actual numbers, allowing direct mathematical operations without conversion in every query. After this change, the original calculation query works correctly without any casting or formatting functions. Dividing the resulting revenue by 10 was necessaary to fix a formatting issue.
 
 ---
 
