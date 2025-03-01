@@ -10,7 +10,7 @@ Installing Microsoft Access Database Engine did not work after several attempts.
 
 ## The SQL query failed because the varchar (text) column "adr" cannot be multiplied with a number
 
-The FORMAT function with N2 specifier converts text values to numbers, performs multiplication, and formats results with 2 decimal places plus thousands separators. This approach displays revenue calculations properly as currency values with consistent decimal precision.
+The ALTER TABLE ALTER COLUMN statement changes the data type of "adr" from varchar to DECIMAL(10,2) in all three tables. This permanent change fixes the root issue by storing the values as actual numbers, allowing direct mathematical operations without conversion in every query. After this change, the original calculation query works correctly without any casting or formatting functions.
 
 ---
 

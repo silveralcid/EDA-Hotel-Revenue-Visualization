@@ -11,6 +11,18 @@ SELECT * FROM hotels
 
 -- Q1: Is our hotel revenue growing yearly?
 
+-- Alter adr from VARCHAR to DECIMAL
+
+ALTER TABLE [Projects].[dbo].[2018] 
+ALTER COLUMN adr DECIMAL(10,2);
+
+ALTER TABLE [Projects].[dbo].[2019] 
+ALTER COLUMN adr DECIMAL(10,2);
+
+ALTER TABLE [Projects].[dbo].[2020] 
+ALTER COLUMN adr DECIMAL(10,2);
+
+
 -- Derive revenue values from adr (average daily rate), stays_in_week_nights, and stays_in_weekend_nights. 
 
 WITH hotels AS(
@@ -20,9 +32,10 @@ WITH hotels AS(
     UNION
     SELECT * FROM [Projects].[dbo].[2020]
 )
-
-SELECT FORMAT((stays_in_week_nights + stays_in_weekend_nights) * CAST(adr AS DECIMAL(10,2)), 'N2') as revenue 
-FROM hotels
+SELECT 
+    (stays_in_week_nights + stays_in_weekend_nights) * adr as revenue 
+FROM 
+    hotels
 
 -- Q2: Should we increase our parking lot size?
 
