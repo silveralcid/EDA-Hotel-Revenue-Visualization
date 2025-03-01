@@ -4,9 +4,13 @@ SQL Server Name: SILVER-DESKTOP\SQLEXPRESS
 
 # Issues
 
-## The 'Microsoft.ACE.OLEDB.16.0' provider is not registered on the local machine. (System.Data)
+## When attempting to import the XSLX file: The 'Microsoft.ACE.OLEDB.16.0' provider is not registered on the local machine. (System.Data)
 
 Installing Microsoft Access Database Engine did not work after several attempts. Excel data files were converted to CSV as a workaround.
+
+## The SQL query failed because the varchar (text) column "adr" cannot be multiplied with a number
+
+The FORMAT function with N2 specifier converts text values to numbers, performs multiplication, and formats results with 2 decimal places plus thousands separators. This approach displays revenue calculations properly as currency values with consistent decimal precision.
 
 ---
 

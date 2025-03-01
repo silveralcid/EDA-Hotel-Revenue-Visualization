@@ -13,6 +13,17 @@ SELECT * FROM hotels
 
 -- Derive revenue values from adr (average daily rate), stays_in_week_nights, and stays_in_weekend_nights. 
 
+WITH hotels AS(
+    SELECT * FROM [Projects].[dbo].[2018]
+    UNION
+    SELECT * FROM [Projects].[dbo].[2019]
+    UNION
+    SELECT * FROM [Projects].[dbo].[2020]
+)
+
+SELECT FORMAT((stays_in_week_nights + stays_in_weekend_nights) * CAST(adr AS DECIMAL(10,2)), 'N2') as revenue 
+FROM hotels
+
 -- Q2: Should we increase our parking lot size?
 
 -- Q3: What trands can we see in the data
