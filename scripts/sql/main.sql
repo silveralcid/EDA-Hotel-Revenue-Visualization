@@ -42,6 +42,43 @@ GROUP BY arrival_date_year
 
 -- Q2: Should we increase our parking lot size?
 
+ALTER TABLE [Projects].[dbo].[2018] 
+ALTER COLUMN stays_in_week_nights DECIMAL(10,2);
+
+ALTER TABLE [Projects].[dbo].[2018] 
+ALTER COLUMN stays_in_weekend_nights DECIMAL (10,2);
+
+ALTER TABLE [Projects].[dbo].[2019] 
+ALTER COLUMN stays_in_week_nights DECIMAL(10,2);
+
+ALTER TABLE [Projects].[dbo].[2019] 
+ALTER COLUMN stays_in_weekend_nights DECIMAL (10,2);
+
+ALTER TABLE [Projects].[dbo].[2020] 
+ALTER COLUMN stays_in_week_nights DECIMAL(10,2);
+
+ALTER TABLE [Projects].[dbo].[2020] 
+ALTER COLUMN stays_in_weekend_nights DECIMAL (10,2);
+
+WITH hotels AS(
+    SELECT * FROM [Projects].[dbo].[2018]
+    UNION
+    SELECT * FROM [Projects].[dbo].[2019]
+    UNION
+    SELECT * FROM [Projects].[dbo].[2020]
+)
+
+SELECT
+arrival_date_year, hotel,
+SUM((stays_in_week_nights + stays_in_weekend_nights) * adr)
+as revenue,
+CONCAT
+(ROUND((SUM(required_car_parking_spaces)/SUM(stays_in_week_nights + stays_in_weekend_nights)) * 100, 2), '%') 
+AS parking_percentage
+FROM hotels GROUP BY arrival_date_year, hotel
+
+-- Q2A: We do not need to increase parking. Parking utilization has not gone above 3.9% in the last three years.
+
 -- Q3: What trands can we see in the data
 
 -- Q4: Which market segments contribute most to our revenue?
