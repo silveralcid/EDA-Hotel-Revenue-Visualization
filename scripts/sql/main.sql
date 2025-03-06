@@ -58,7 +58,7 @@ ALTER TABLE [Projects].[dbo].[2020]
 ALTER COLUMN stays_in_week_nights DECIMAL(10,2);
 
 ALTER TABLE [Projects].[dbo].[2020] 
-ALTER COLUMN stays_in_weekend_nights DECIMAL (10,2);
+ALTER wCOLUMN stays_in_weekend_nights DECIMAL (10,2);
 
 WITH hotels AS(
     SELECT * FROM [Projects].[dbo].[2018]
@@ -81,8 +81,17 @@ FROM hotels GROUP BY arrival_date_year, hotel
 
 -- Q3: What trands can we see in the data
 
--- Q4: Which market segments contribute most to our revenue?
+-- Before visualization to answer this question, we must prepare the SQL queries by joining the market segment and meal tables
 
--- Q5: What is the average length of stay, and how does it affect revenue?
+WITH hotels AS(
+    SELECT * FROM [Projects].[dbo].[2018]
+    UNION
+    SELECT * FROM [Projects].[dbo].[2019]
+    UNION
+    SELECT * FROM [Projects].[dbo].[2020])
 
--- Q6: What are the booking patterns and cancellation rates throughout the year?
+select * from hotels
+left join dbo.[market-segment]
+on hotels.market_segment = [market-segment].market_segment
+left join dbo.[meal-cost]
+on [meal-cost].meal = hotels.meal
