@@ -90,8 +90,8 @@ WITH hotels AS(
     UNION
     SELECT * FROM [Projects].[dbo].[2020])
 
-select * from hotels
-left join dbo.[market-segment]
-on hotels.market_segment = [market-segment].market_segment
-left join dbo.[meal-cost]
-on [meal-cost].meal = hotels.meal
+SELECT * FROM hotels
+LEFT JOIN dbo.[market-segment]
+ON hotels.market_segment = [market-segment].market_segment
+LEFT JOIN dbo.[meal-cost]
+ON [meal-cost].meal = hotels.meal
