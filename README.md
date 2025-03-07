@@ -26,7 +26,7 @@
   - [Issue 2: SQL Query Failure Due to Data Type](#issue-2-sql-query-failure-due-to-data-type)
   - [Issue 3: Handling Non-Numeric Data in Conversion](#issue-3-handling-non-numeric-data-in-conversion)
 - [Summary](#summary)
-=======
+
 ## Introduction
 
 This project analyzes hotel booking data to extract insights on revenue trends, parking capacity, and other business metrics. The analysis utilizes SQL Server Management Studio (SSMS) for database management, SQL for data querying, and Power BI for data visualization.
