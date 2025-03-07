@@ -1,4 +1,5 @@
 # Hotel Booking Data Analysis
+![Hotel Revenue Visualization](https://github.com/silveralcid/EDA-Hotel-Revenue-Visualization/blob/main/reports/EDA-Hotel-Revenue-Visualization.jpg?raw=true)
 
 ## Introduction
 
