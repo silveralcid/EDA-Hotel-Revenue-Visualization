@@ -1,5 +1,6 @@
 # Hotel Booking Data Analysis
 ![Hotel Revenue Visualization](https://github.com/silveralcid/EDA-Hotel-Revenue-Visualization/blob/main/reports/EDA-Hotel-Revenue-Visualization.jpg?raw=true)
+<<<<<<< HEAD
 
 ## Table of Contents
 
@@ -26,6 +27,8 @@
   - [Issue 2: SQL Query Failure Due to Data Type](#issue-2-sql-query-failure-due-to-data-type)
   - [Issue 3: Handling Non-Numeric Data in Conversion](#issue-3-handling-non-numeric-data-in-conversion)
 - [Summary](#summary)
+=======
+>>>>>>> ecda8e51e99041b9db8a8e19fd7f2a7815cbb20b
 
 ## Introduction
 
