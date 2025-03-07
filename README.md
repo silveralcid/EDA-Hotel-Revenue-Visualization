@@ -1,4 +1,31 @@
 # Hotel Booking Data Analysis
+![Hotel Revenue Visualization](https://github.com/silveralcid/EDA-Hotel-Revenue-Visualization/blob/main/reports/EDA-Hotel-Revenue-Visualization.jpg?raw=true)
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Tools Used](#tools-used)
+- [Methodology](#methodology)
+  - [Database Creation](#1-database-creation)
+  - [Data Querying and Analysis](#2-data-querying-and-analysis)
+  - [Integration with Power BI](#3-integration-with-power-bi)
+  - [Data Visualization](#4-data-visualization)
+- [Findings](#findings)
+  - [Revenue Trends](#1-revenue-trends)
+  - [Parking Lot Capacity](#2-parking-lot-capacity)
+  - [Other Trends](#3-other-trends)
+- [Conclusion](#conclusion)
+- [Future Work](#future-work)
+- [SQL Queries for Exploratory Analysis](#sql-queries-for-exploratory-analysis)
+  - [Creating a Unified `hotels` Table](#1-creating-a-unified-hotels-table)
+  - [Revenue Growth Analysis](#2-revenue-growth-analysis)
+  - [Parking Lot Capacity Analysis](#3-parking-lot-capacity-analysis)
+  - [Data Joining for Further Analysis](#4-data-joining-for-further-analysis)
+- [Issue Resolution](#issue-resolution)
+  - [Issue 1: Importing Excel File](#issue-1-importing-excel-file)
+  - [Issue 2: SQL Query Failure Due to Data Type](#issue-2-sql-query-failure-due-to-data-type)
+  - [Issue 3: Handling Non-Numeric Data in Conversion](#issue-3-handling-non-numeric-data-in-conversion)
+- [Summary](#summary)
 
 ## Introduction
 
@@ -59,8 +86,6 @@ SQL and Power BI proved valuable in analyzing hospitality data. Key insights inc
 - Analyze seasonal variations in bookings.
 - Integrate additional data sources, such as customer feedback.
 - Examine local events' impact on booking trends.
-
----
 
 ## SQL Queries for Exploratory Analysis
 
@@ -148,27 +173,23 @@ LEFT JOIN dbo.[meal-cost] ON [meal-cost].meal = hotels.meal;
 
 **Purpose**: Prepares data for Power BI analysis by linking market segment and meal cost data.
 
----
-
 ## Issue Resolution
 
-### **Issue 1: Importing Excel File**
+### Issue 1: Importing Excel File
 
 **Error Message**: _The 'Microsoft.ACE.OLEDB.16.0' provider is not registered._
 
-#### **Fix**:
+#### Fix:
 
 1. Convert Excel files to CSV format.
 2. Install the correct **Access Database Engine**.
 3. Ensure Office and SQL Server architecture compatibility.
 
----
-
-### **Issue 2: SQL Query Failure Due to Data Type**
+### Issue 2: SQL Query Failure Due to Data Type
 
 **Error**: _VARCHAR column "adr" cannot be multiplied with a number._
 
-#### **Fix**:
+#### Fix:
 
 Converted `adr` column to `DECIMAL(10,2)` in all tables:
 
@@ -177,24 +198,6 @@ ALTER TABLE [Projects].[dbo].[2018] ALTER COLUMN adr DECIMAL(10,2);
 ALTER TABLE [Projects].[dbo].[2019] ALTER COLUMN adr DECIMAL(10,2);
 ALTER TABLE [Projects].[dbo].[2020] ALTER COLUMN adr DECIMAL(10,2);
 ```
-
----
-
-### **Issue 3: Handling Non-Numeric Data in Conversion**
-
-**Problem**: Converting VARCHAR to DECIMAL fails if non-numeric data exists.
-
-#### **Fix**:
-
-Identified problematic rows using:
-
-```sql
-SELECT * FROM table_name WHERE TRY_CONVERT(DECIMAL(10,2), adr) IS NULL;
-```
-
-Then, cleaned up invalid entries before conversion.
-
----
 
 ## Summary
 
